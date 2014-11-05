@@ -2,25 +2,24 @@
 
 #include <stdio.h>
 
-//Constants within the program
-#define PRINCIPAL	1000.00 //Inistial Deposite
-#define INTREREST	.1 //10% interest
-#define PERIOD		10 //How many years the interest accumulates over
-
 int main()
 {
-	scanf("Principal amount of money: %&f")
+	int 	year = 0,	//Year of period
+		period;		//Amount of years the interest accumulates over
 
-	int 	year;	//Year of period
-	float		sum;	//Total amount 
+	float	interest,	//Interest that will be given 
+		principal;	//Original amount of money depositied
 
-	sum 	= PRINCIPAL;
-	year 	= 0;
+	printf("Enter the interest rate, period, and principal: "); //Asks for information
 
-	do
+	if(scanf("%f %i %f", &interest, &period, &principal) == 3) //Gets information from user
 	{
-		printf("Year: %i, Sum: %.2f\n", year, sum);
-		sum = (sum*INTREREST) + sum;
-		year += 1;
-	} while (year <= PERIOD);
+		printf("Year\tTotal at %.2f%%\n\n", interest*100); //Print beginning of table
+
+		for(year = 0; year < period; year++) //Prints amount of money after each year
+		{
+			printf("%5d\t$ %10.2f\n", year+1, principal);
+			principal += principal * interest;
+		}
+	}
 }
