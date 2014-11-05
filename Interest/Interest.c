@@ -38,7 +38,10 @@ int main()
 	}
 
 	else
+	{
 		printf("Unknown error in input! Quitting!");
+		return 1;
+	}
 
 	return 0;
 }
